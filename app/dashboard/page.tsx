@@ -13,7 +13,7 @@ const Page = (props: Props) => {
       </div>
 
       {/* CONTENT */}
-      <div className="col-span-12 md:col-span-9 lg:col-span-10 row-span-4 p-4">
+      <div className="col-span-12 md:col-span-9 lg:col-span-10 row-span-4">
         <Content />
       </div>
     </div>

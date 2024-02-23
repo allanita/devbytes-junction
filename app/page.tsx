@@ -1,9 +1,13 @@
+import { redirect } from "next/navigation";
+
 export default function Home() {
-  return (
-    <main className="prose">
-      <div>
-        <h1>Hello world</h1>
-      </div>
-    </main>
-  );
+  redirect("/auth/login");
+
+  // return (
+  //   <main className="prose">
+  //     <div>
+  //       <h1>Hello world</h1>
+  //     </div>
+  //   </main>
+  // );
 }

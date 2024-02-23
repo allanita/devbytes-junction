@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Logo = () => {
   return (
-    <div className="card w-full bg-base-100 shadow-xl hover:cursor-pointer">
+    <div className="card w-full bg-base-100 shadow-lg hover:cursor-pointer">
       <div className="card-body p-6 flex-row justify-center items-center gap-3">
         <Image
           className="m-0"

@@ -1,10 +1,16 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 type Props = {};
 
 const Page = (props: Props) => {
+  const router = useRouter();
   const [formData, setFormData] = useState({ email: "", password: "" });
+
+  const submitHandler = () => {
+    router.push('/dashboard')
+  };
 
   return (
     <div className="h-screen flex items-center justify-center">
@@ -56,7 +62,9 @@ const Page = (props: Props) => {
           </label>
 
           <div className="card-actions">
-            <button className="btn btn-primary w-full">Submit</button>
+            <button className="btn btn-primary w-full" onClick={submitHandler}>
+              Submit
+            </button>
           </div>
         </div>
       </div>
