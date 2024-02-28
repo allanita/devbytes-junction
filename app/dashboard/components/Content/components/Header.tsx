@@ -1,11 +1,13 @@
 import React from "react";
+import NavToggle from "./NavToggle";
 
 type Props = {};
 
 export default function Header(props: Props) {
   return (
-    <div className="shadow-xl p-5">
-      <div className="flex justify-end items-center gap-4">
+    <div className="shadow-xl p-5 flex justify-between lg:justify-end">
+      <NavToggle />
+      <div className="flex flex-row items-center gap-4">
         <ThemeController />
         <Greetings />
       </div>
@@ -43,6 +45,7 @@ const ThemeController = () => {
 };
 
 const Greetings = () => {
+  // TODO: Implement authentication
   // fetch data from state or session user
   const user = {
     fname: "John",

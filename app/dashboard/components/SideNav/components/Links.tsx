@@ -7,7 +7,7 @@ type Props = {
 
 const Links = (props: Props) => {
   return (
-    <div className="my-4">
+    <div className="mt-4">
       <ul className="list-inside list-disc">
         {props.links.map((x) => (
           <Link

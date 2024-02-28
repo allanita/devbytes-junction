@@ -14,7 +14,7 @@ export default function SideNav(props: Props) {
   ];
 
   return (
-    <div className="prose">
+    <div className="prose m-auto">
       <Logo />
       <Links links={navLinks} />
     </div>
