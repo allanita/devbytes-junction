@@ -1,5 +1,7 @@
 import React from "react";
 import NavToggle from "./NavToggle";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/authOptions";
 
 type Props = {};
 
@@ -44,17 +46,16 @@ const ThemeController = () => {
   );
 };
 
-const Greetings = () => {
-  // TODO: Implement authentication
-  // fetch data from state or session user
-  const user = {
-    fname: "John",
-    lname: "Doe",
-  };
+const Greetings = async () => {
+  const session = await getServerSession(authOptions);
+
+  console.log("OPTIONS", session);
+
+  if (!session) return null;
 
   return (
     <span className="hover:cursor-pointer font-bold antialiased">
-      Hi, {user.fname} {user.lname}
+      Hi, {session?.user?.name}
     </span>
   );
 };

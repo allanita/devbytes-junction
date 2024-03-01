@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 export default function Home() {
-  redirect("/auth/login");
+  redirect("/api/auth/signin?callbackUrl=/dashboard");
 
   // return (
   //   <main className="prose">

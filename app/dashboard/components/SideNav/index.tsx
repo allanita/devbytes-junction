@@ -11,6 +11,7 @@ export default function SideNav(props: Props) {
     { label: "Videos", path: "/dashboard/videos" },
     { label: "Posts", path: "/dashboard/posts" },
     { label: "Terms of use", path: "/dashboard/terms-of-use" },
+    { label: "Sign out", path: "/api/auth/signout?callbackUrl=/" },
   ];
 
   return (
