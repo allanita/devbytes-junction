@@ -15,15 +15,17 @@ export const authOptions: NextAuthOptions = {
     // },
 
     async jwt(params) {
-      console.log("JWT", params);
+      // console.log("JWT_CB", params);
 
       return params.token;
     },
 
     async session({ session, token }) {
       if (!session.user) return session;
+
       // pass user id from github to session user data
       if (token.sub) session.user.id = token.sub;
+
       return session;
     },
   },

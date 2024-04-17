@@ -12,7 +12,7 @@ const Feed = (props: Props) => {
       <div
         className={`w-1/2 h-screen lg:h-[calc(100vh-64px)] overflow-auto mx-auto ${scrollbarHideStyle}`}
       >
-        {Array.from({ length: 40 }).map((_, i) => (
+        {/* {Array.from({ length: 40 }).map((_, i) => (
           <div key={i} className="card lg:card-side bg-base-100 shadow-xl my-9">
             <figure>
               <Image
@@ -30,7 +30,7 @@ const Feed = (props: Props) => {
               </div>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
