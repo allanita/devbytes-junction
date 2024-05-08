@@ -4,6 +4,7 @@ import { z } from "zod";
 import bcrypt from "bcrypt";
 
 export async function GET(req: NextRequest) {
+  // get users
   const users = await prisma.user.findMany({
     select: { email: true, first_name: true, last_name: true },
   });
