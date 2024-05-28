@@ -4,6 +4,10 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+generator zod {
+  provider = "zod-prisma-types"
+}
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -15,9 +19,13 @@ datasource db {
 
 model User {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  /// @zod.string.min(1)
   first_name String
+  /// @zod.string.min(1)
   last_name  String
+  /// @zod.string.email()
   email      String
+  /// @zod.string.min(5)
   password   String
   post       Post[]
   createdAt  DateTime @default(now())
@@ -25,10 +33,11 @@ model User {
 }
 
 model Post {
-  id      String @id @default(auto()) @map("_id") @db.ObjectId
-  title   String
-  content String
-
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  /// @zod.string.min(1)
+  title     String
+  /// @zod.string.min(1)
+  content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   User      User     @relation(fields: [userId], references: [id], onDelete: Cascade)

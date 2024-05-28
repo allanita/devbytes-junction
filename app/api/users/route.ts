@@ -1,7 +1,7 @@
 import prisma from "@/prisma/client";
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
 import bcrypt from "bcrypt";
+import { UserCreateInputSchema } from "@/prisma/generated/zod";
 
 export async function GET(req: NextRequest) {
   // get users
@@ -12,19 +12,11 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({ users });
 }
 
-const userSchema = z.object({
-  first_name: z.string().min(1),
-  last_name: z.string().min(1),
-  email: z.string().min(1),
-  password: z.string().min(1),
-});
-
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const validation = userSchema.safeParse(body);
 
-  if (!validation.success)
-    return NextResponse.json(validation.error.errors, { status: 400 });
+  const validation = UserCreateInputSchema.safeParse(body);
+  if (!validation.success) return NextResponse.json({ error: validation.error.errors }, { status: 400 });
 
   const hashedPw = await bcrypt.hash(body.password, 10);
 
