@@ -1,10 +1,13 @@
 import prisma from "@/prisma/client";
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import { UserCreateInputSchema } from "@/prisma/generated/zod";
 
 export async function GET(req: NextRequest) {
-  // get users
+  // const searchParams = req.nextUrl.searchParams;
+  // const query = searchParams.get("query");
+  // query is "hello" for /api/search?query=hello
+
   const users = await prisma.user.findMany({
     select: { email: true, first_name: true, last_name: true },
   });

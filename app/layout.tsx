@@ -4,18 +4,10 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const siteMetaData = {
+export const metadata: Metadata = {
   title: "DevBytes Junction",
   description:
     "DevBytes Junction: Your go-to destination for software developers to explore coding practices, programming languages, and development tools in a vibrant online community.",
-};
-
-export const metadata: Metadata = {
-  ...siteMetaData,
-  openGraph: {
-    ...siteMetaData,
-    type: "website",
-  },
 };
 
 export default function RootLayout({

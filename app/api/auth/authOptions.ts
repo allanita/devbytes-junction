@@ -30,13 +30,3 @@ export const authOptions: NextAuthOptions = {
     },
   },
 };
-
-/**
- * > SIGNIN
- * user.id = 70393657
- * account.providerAcountId = 70393657
- * profile.id = 70393657
- *
- * > JWT
- * token.sub = 70393657
- */
